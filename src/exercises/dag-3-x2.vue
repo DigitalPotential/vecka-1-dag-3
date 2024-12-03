@@ -1,14 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+// State för API-anrop
 const data = ref(null)
 const loading = ref(false)
 const error = ref(null)
 
+// Funktion för att hämta Pokemon-data från API
 const fetchData = async () => {
   loading.value = true
   try {
-  
     const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
     const json = await response.json()
     data.value = json.results
@@ -19,6 +20,7 @@ const fetchData = async () => {
   }
 }
 
+// Hämta data när komponenten monteras
 onMounted(() => {
   fetchData()
 })
@@ -28,17 +30,17 @@ onMounted(() => {
   <div class="data-fetching">
     <h2>Pokemon Lista</h2>
     
-    <!-- Loading state -->
+    <!-- Loading-indikator -->
     <div v-if="loading" class="loading">
       Laddar Pokemon...
     </div>
 
-    <!-- Error state -->
+    <!-- Felmeddelande -->
     <div v-else-if="error" class="error">
       {{ error }}
     </div>
 
-    <!-- Visa data -->
+    <!-- Lista med Pokemon -->
     <div v-else class="pokemon-list">
       <div v-for="pokemon in data" :key="pokemon.name" class="pokemon-card">
         <h3>{{ pokemon.name }}</h3>

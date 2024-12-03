@@ -1,5 +1,5 @@
 <script setup>
-// Skapa arrays för v-for här
+// Exempel på listor för v-for demonstration
 const simpleList = ['Äpple', 'Banan', 'Citron']
 const objectList = [
   { id: 1, name: 'Produkt 1', price: 99 },
@@ -10,7 +10,7 @@ const objectList = [
 
 <template>
   <div class="lists">
-    <!-- Lista med strängar -->
+    <!-- Enkel lista med strängar -->
     <h2>Fruktlista</h2>
     <ul>
       <li v-for="(fruit, index) in simpleList" :key="index">
@@ -18,7 +18,7 @@ const objectList = [
       </li>
     </ul>
 
-    <!-- Lista med objekt -->
+    <!-- Lista med objekt visad som kort -->
     <h2>Produkter</h2>
     <div class="cards">
       <div 

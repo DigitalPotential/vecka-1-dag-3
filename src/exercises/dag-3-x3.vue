@@ -1,4 +1,5 @@
 <script setup>
+// Importera och använd counter composable
 import { useCounter } from './composables/useCounter'
 
 const { count, increment, decrement, reset } = useCounter(0)
@@ -6,7 +7,9 @@ const { count, increment, decrement, reset } = useCounter(0)
 
 <template>
   <div class="counter">
+    <!-- Visa räknarvärde -->
     <h2>Counter: {{ count }}</h2>
+    <!-- Knappar för att kontrollera räknaren -->
     <div class="buttons">
       <button @click="decrement">-</button>
       <button @click="increment">+</button>
